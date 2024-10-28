@@ -1,5 +1,5 @@
 document.getElementById('openClient').addEventListener('click', function() {
-    window.open('client.html', '_blank'); // Open the client website in a new tab
+    window.open('https://mk-pankaj.github.io/Notification-handle-/client.htmlhttps://mk-pankaj.github.io/Notification-handle-/client.html', '_blank'); // Open the client website in a new tab
 });
 
 // Listen for messages from the client website
