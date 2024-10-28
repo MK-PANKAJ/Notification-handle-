@@ -1,30 +1,26 @@
-document.getElementById('sendNotification').addEventListener('click', function() {
-    const notificationData = { response: "This is a test notification!" };
-    displayNotification(notificationData);
+document.getElementById('openClient').addEventListener('click', function() {
+    window.open('client.html', '_blank'); // Open the client website in a new tab
 });
 
-document.getElementById('clearButton').addEventListener('click', function() {
-    clearNotifications();
+// Listen for messages from the client website
+window.addEventListener('message', function(event) {
+    // Check the origin of the message for security
+    if (event.origin === "https://mk-pankaj.github.io/Manish-/") { // Replace with the actual client website URL
+        displayNotification(event.data);
+    } else {
+        console.warn("Received message from untrusted origin:", event.origin);
+    }
 });
 
 // Function to display notifications
 function displayNotification(data) {
-    const notificationArea = document.getElementById('notificationArea');
-    const notificationDiv = document.createElement('div');
-    notificationDiv.className = 'notification';
-    notificationDiv.textContent = data.response;
-
-    // Add a click event to redirect to a different URL
-    notificationDiv.addEventListener('click', function() {
-        // Redirect to the client website or any other URL
-        window.location.href = "https://mk-pankaj.github.io/Manish-/"; // Replace with the actual URL
-    });
-
-    notificationArea.appendChild(notificationDiv);
-}
-
-// Function to clear notifications
-function clearNotifications() {
-    const notificationArea = document.getElementById('notificationArea');
-    notificationArea.innerHTML = ''; // Clear all notifications
+    if (data && data.response) {
+        const notificationArea = document.getElementById('notificationArea');
+        const notificationDiv = document.createElement('div');
+        notificationDiv.className = 'notification';
+        notificationDiv.textContent = data.response;
+        notificationArea.appendChild(notificationDiv);
+    } else {
+        console.error("Invalid notification data:", data);
+    }
 }
