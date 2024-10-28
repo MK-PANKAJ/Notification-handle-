@@ -1,26 +1,19 @@
-document.getElementById('openClient').addEventListener('click', function() {
-    window.open('https://mk-pankaj.github.io/Manish-/', '_blank'); // Open the client website in a new tab
-});
+const colors = [
+    '#ffcccb', // Light red
+    '#ffeb3b', // Yellow
+    '#4caf50', // Green
+    '#2196f3', // Blue
+    '#9c27b0', // Purple
+    '#ff5722', // Deep orange
+    '#00bcd4', // Cyan
+    '#ffc107', // Amber
+];
 
-// Listen for messages from the client website
-window.addEventListener('message', function(event) {
-    // Check the origin of the message for security
-    if (event.origin === "https://mk-pankaj.github.io/Manish-/") { // Replace with the actual client website URL
-        displayNotification(event.data);
-    } else {
-        console.warn("Received message from untrusted origin:", event.origin);
-    }
-});
-
-// Function to display notifications
-function displayNotification(data) {
-    if (data && data.response) {
-        const notificationArea = document.getElementById('notificationArea');
-        const notificationDiv = document.createElement('div');
-        notificationDiv.className = 'notification';
-        notificationDiv.textContent = data.response;
-        notificationArea.appendChild(notificationDiv);
-    } else {
-        console.error("Invalid notification data:", data);
-    }
+// Function to change the background color
+function changeBackgroundColor() {
+    const randomIndex = Math.floor(Math.random() * colors.length);
+    document.body.style.backgroundColor = colors[randomIndex];
 }
+
+// Change color every 2 seconds (2000 milliseconds)
+setInterval(changeBackgroundColor, 2000);
