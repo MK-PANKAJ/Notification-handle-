@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notification Handler</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        #notifications {
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 10px;
+            max-width: 500px;
+            margin: 20px auto;
+            background-color: #fff;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .notification {
+            background-color: #e7f3fe;
+            color: #31708f;
+            padding: 10px;
+            margin: 5px 0;
+            border: 1px solid #bce8f1;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+        .notification:hover {
+            background-color: #d0e9ff;
+        }
+        button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 5px;
+            background-color: #007bff;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        @media (max-width: 600px) {
+            #notifications {
+                width: 90%;
+            }
+            button {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Notification Handler</h1>
+    <div id="notifications"></div>
+    <button id="clearButton">Clear Notifications</button>
+
+    <script>
+        // URL of the client website to redirect back to
+        const clientWebsiteURL = "https://your-client-website.com"; // Change this to the actual URL of your client website
+        let isNotificationReceived = false; // Flag to check if notification was received
+
+        // This function displays the notification
+        function receiveNotification(data) {
+            if (data && data.response) {
+                const notificationsDiv = document.getElementById('notifications');
+                const notification = document.createElement('div');
+                notification.className = 'notification';
+                notification.innerText = `Notification received: ${data.response}`;
+                notificationsDiv.appendChild(notification);
+
+                // Set the flag to true
+                isNotificationReceived = true;
+
+                // Redirect back to the client website instantly
+                window.location.href = clientWebsiteURL;
+            }
+        }
+
+        // Listen for messages from the given website
+        window.addEventListener('message', function(event) {
+            // Ensure the message is coming from the expected origin
+            if (event.origin === "https://your-love-confirmation.github.io") { // Change this to the actual URL of your given website
+                receiveNotification(event.data);
+            }
+        });
+
+        // Check if the page was opened directly
+        if (document.referrer === "") {
+            // If opened directly, do not redirect
+            isNotificationReceived = false;
+        }
+
+        // Clear notifications
+        document.getElementById('clearButton').addEventListener('click', function() {
+            document.getElementById('notifications').innerHTML = '';
+        });
+    </script>
+</body>
+</html>
