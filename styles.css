@@ -1,40 +1,38 @@
 body {
-    font-family: 'Arial', sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
     margin: 0;
-    padding: 0;
-    background-color: #f0f4f8;
-}
-
-.container {
-    max-width: 600px;
-    margin: 50px auto;
-    padding: 20px;
-    background-color: #ffffff;
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    font-family: 'Arial', sans-serif;
+    background-color: #ffcccb; /* Light red background */
+    transition: background-color 0.5s ease; /* Smooth transition for background color */
 }
 
 h1 {
-    text-align: center;
-    color: #333;
-    margin-bottom: 20px;
+    color: #4a90e2; /* Blue text */
+    font-size: 3em;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
 }
 
-.notifications {
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    padding: 10px;
-    max-height: 300px;
-    overflow-y: auto;
-    margin-bottom: 20px;
-    background-color: #f9f9f9;
+p {
+    color: #d35400; /* Orange text */
+    font-size: 1.5em;
+    margin: 20px 0;
 }
 
-.notification {
-    background-color: #e7f3fe;
-    color: #31708f;
-    padding: 10px;
-    margin: 5px 0;
-    border: 1px solid #bce8f1;
+button {
+    padding: 10px 20px;
+    font-size: 1.2em;
+    color: white;
+    background-color: #27ae60; /* Green button */
+    border: none;
     border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #2ecc71; /* Lighter green on hover */
 }
