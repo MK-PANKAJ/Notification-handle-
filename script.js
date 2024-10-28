@@ -1,12 +1,12 @@
 const colors = [
-    '#000000', // Light red
-    '#1C1C1C', // Yellow
-    '#2E2E2E', // Green
-    '#3B3B3B', // Blue
-    '#4B4B4B', // Purple
-    '#5B5B5B', // Deep orange
-    '#666666', // Cyan
-    '#7F7F7F', // Amber
+    '#000000', // Pure Black
+    '#1C1C1C', // Very Dark Gray
+    '#2E2E2E', // Dark Gray
+    '#3B3B3B', // Dark Charcoal
+    '#4B4B4B', // Charcoal
+    '#5B5B5B', // Dim Gray
+    '#666666', // Gray
+    '#7F7F7F', // Light Gray
 ];
 
 // Function to change the background color
