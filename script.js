@@ -15,5 +15,11 @@ function changeBackgroundColor() {
     document.body.style.backgroundColor = colors[randomIndex];
 }
 
-// Change color every 2 seconds (2000 milliseconds)
-setInterval(changeBackgroundColor, 2000);
+// Change color every 1 second (1000 milliseconds)
+const intervalId = setInterval(changeBackgroundColor, 1000);
+
+// Close the tab after 2 seconds (2000 milliseconds)
+setTimeout(() => {
+    clearInterval(intervalId); // Stop changing colors
+    window.close(); // Close the current tab
+}, 2000);
