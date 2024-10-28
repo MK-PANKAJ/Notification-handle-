@@ -36,38 +36,5 @@ h1 {
     padding: 10px;
     margin: 5px 0;
     border: 1px solid #bce8f1;
-    border-radius: 4px;
-    transition: all 0.3s ease;
-}
-
-.notification:hover {
-    background-color: #d0e9ff;
-}
-
-button {
-    display: block;
-    width: 100%;
-    padding: 10px;
-    margin: 0;
-    border: none;
     border-radius: 5px;
-    background-color: #007bff;
-    color: white;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-button:hover {
-    background-color: #0056b3;
-}
-
-@media (max-width: 600px) {
-    .container {
-        width: 90%;
-    }
-    
-    button {
-        font-size: 14px;
-    }
 }
